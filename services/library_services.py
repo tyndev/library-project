@@ -1,3 +1,4 @@
+# TODO add typing with pydantic?
 
 class LibraryServices():
     def __init__(self):

@@ -34,4 +34,5 @@ class LibraryServices():
 if __name__ == "__main__":
     lib = LibraryServices()
     lib.find_book_title("1984")
+    # BOOKMARK - this works if called correctly. But it's pointing to memory. Start here. 
     pass

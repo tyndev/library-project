@@ -32,5 +32,6 @@ class LibraryServices():
     
     
 if __name__ == "__main__":
-    # LibraryServices.find_book_title("1984")
+    lib = LibraryServices()
+    lib.find_book_title("1984")
     pass

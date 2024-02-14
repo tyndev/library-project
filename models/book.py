@@ -1,19 +1,18 @@
-# TODO add typing with pydantic?
-# TODO convert to dataclass 
+from dataclasses import dataclass
 
-class Book():
-    def __init__(self, title: str, author: str, year: int):
-        self.title = title
-        self.author = author
-        self.year = year
-        
-    def __str__(self) -> str:
-        return f"{self.title}, {self.author}, {self.year}"
+# TODO add typing with pydantic?
+
+@dataclass 
+class Book:
+    title: str
+    author: str
+    year: int 
+    genre: str       
     
 def main() -> None:
-    book = Book(title="Control Systems Engineering", author="Norman S. Nise", year=2015)
+    book = Book(title="Control Systems Engineering", author="Norman S. Nise", year=2015, genre="engineering textbook")
     print(book)
-    
     
 if __name__ == "__main__":
     main()
+    

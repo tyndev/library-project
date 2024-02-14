@@ -15,7 +15,7 @@ def get_db_connection():
 def init_db():
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute('''CREATE TABLE IF NOT EXISTS library (
+    cursor.execute('''CREATE TABLE IF NOT EXISTS books (
                     id INTEGER PRIMARY KEY,
                     title TEXT NOT NULL,
                     author TEXT NOT NULL,
@@ -29,7 +29,7 @@ def insert_data(book_list):
     conn = get_db_connection()
     cursor = conn.cursor()
     for book in book_list:
-        cursor.execute("INSERT INTO library (title, author, year, genre) VALUES (?, ?, ?, ?)", (book["title"], book["author"], book["year"], book["genre"])) # TODO this isn't very scalable or reusable... find ways to improve.   
+        cursor.execute("INSERT INTO books (title, author, year, genre) VALUES (?, ?, ?, ?)", (book["title"], book["author"], book["year"], book["genre"])) # TODO this isn't very scalable or reusable... find ways to improve.   
     conn.commit()
     cursor.close()
     conn.close()
@@ -66,24 +66,23 @@ if __name__ == "__main__":
          
     init_db()
     
-    # add test data   
-    test_books = [
-        {"title": "The Great Gatsby", "author": "F. Scott Fitzgerald", "year": 1925, "genre": "novel"},
-        {"title": "To Kill a Mockingbird", "author": "Harper Lee", "year": 1960, "genre": "Southern Gothic"},
-        {"title": "1984", "author": "George Orwell", "year": 1949, "genre": "dystopian"},
-        {"title": "Brave New World", "author": "Aldous Huxley", "year": 1932, "genre": "dystopian fiction"}
-    ]
-    
-    insert_data(test_books)
-    
+    # # add test data   
+    # test_books = [
+    #     {"title": "The Great Gatsby", "author": "F. Scott Fitzgerald", "year": 1925, "genre": "novel"},
+    #     {"title": "To Kill a Mockingbird", "author": "Harper Lee", "year": 1960, "genre": "Southern Gothic"},
+    #     {"title": "1984", "author": "George Orwell", "year": 1949, "genre": "dystopian"},
+    #     {"title": "Brave New World", "author": "Aldous Huxley", "year": 1932, "genre": "dystopian fiction"}
+    # ]
+    # insert_data(test_books)
+        
     # Print all books.
     print("All Books ----")
-    library = query_db("SELECT * FROM library")
+    library = query_db("SELECT * FROM books")
     for book in library:
         print(f"ID: {book['id']}, title: {book['title']}, author: {book['author']}, year: {book['year']}, genre: {book['genre']}")
     
-    # # Print one book.
-    # print("One User ----")
-    # book = query_db("SELECT * FROM users WHERE title = ?", ("test", ), one=True)
-    # print(f"ID: {book['id']}, title: {book['title']}, author: {book['author']}, year: {book['year']}, genre: {book['genre']}")
+    # Print one book.
+    print("One book ----")
+    book = query_db("SELECT * FROM books WHERE title = ?", ("1984", ), one=True)
+    print(f"ID: {book['id']}, title: {book['title']}, author: {book['author']}, year: {book['year']}, genre: {book['genre']}")
     

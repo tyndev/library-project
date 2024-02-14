@@ -1,16 +1,21 @@
 # TODO add typing with pydantic?
 
+from database import database_manager as db
+
 class LibraryServices():
     def __init__(self):
-        book_collection = []
+        self.library = []
     
-    def add_book(self, title, author, year):
-        # call book class
-        # add book to book_collection
+    def add_book(self, book):
+        # add book to library
+        # check for repeat titles
+        self.find_book_title(book["title"])
+        self.library.append(book)
         pass
     
     def find_book_title(self, title):
-        pass
+        book = db.query_db("SELECT * FROM books WHERE title = ?", (title, ), one=True)
+        print(book)
     
     def remove_book(self, title):
         # find_book_title
@@ -24,3 +29,8 @@ class LibraryServices():
     
     def list_books(self):
         pass
+    
+    
+if __name__ == "__main__":
+    # LibraryServices.find_book_title("1984")
+    pass

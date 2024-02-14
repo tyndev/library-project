@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-
 # TODO add typing with pydantic?
 
 @dataclass 

@@ -3,8 +3,6 @@ Learning Project: RESTful API for Library Management using FastAPI, SQLite, CRUD
 
 
 ## Learnings
-### Dependency Inversion Principle
-Issue: I initially tried For scalability and reusability in insert_data, instead of passing a list of Book objects directly to the database manager, consider a more generic approach where the database manager does not need to know about the Book class. This will help adhere to the dependency inversion principle.
 ### Appreciation for ORMs
 Once finished, I believe this project will have given a keen appreciate for ORMs such as SQLAlchemy.
 ### Running Python Scripts with Correct Imports

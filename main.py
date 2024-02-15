@@ -15,9 +15,11 @@ lib = library_services.LibraryServices()
 
 new_book = b.Book(title="Control Systems Engineering", author="Norman S. Nise", year=2015, genre="engineering textbook") # TODO convert to user import 
 
-# # WORKS to add new book, pending rest of features, then bring back for user input 
+# WORKS to add new book, pending rest of features, then bring back for user input 
 # lib.add_book(new_book)
 
-lib.list_books()
+for book in lib.list_books():
+    print(book)
+    
 
 

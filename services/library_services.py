@@ -6,7 +6,7 @@ class LibraryServices():
     def __init__(self):
         self.library = []
     
-    def add_book(self, book: b.Book):
+    def add_book(self, book):
         # add book to library
         # check for repeat titles
         if self.find_book_title(book.title) is None:
@@ -33,8 +33,9 @@ class LibraryServices():
     
     def list_books(self):
         for book in db.query_db("SELECT * FROM books"):
-            print(f"ID: {book['id']}, title: {book['title']}, author: {book['author']}, year: {book['year']}, genre: {book['genre']}")
-    
+            book = b.Book(title=book['title'], author=book['author'], year=book['year'], genre=book['genre']) 
+            self.library.append(book)
+        return self.library    
     
 if __name__ == "__main__":
     lib = LibraryServices()

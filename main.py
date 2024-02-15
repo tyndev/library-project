@@ -9,12 +9,15 @@
     # LIBRARY - for features 
 
 from models import book as b
-from services import library_services as lib
+from services import library_services
+
+lib = library_services.LibraryServices()
 
 new_book = b.Book(title="Control Systems Engineering", author="Norman S. Nise", year=2015, genre="engineering textbook") # TODO convert to user import 
 
-# lib.LibraryServices.add_book(new_book)
+# # WORKS to add new book, pending rest of features, then bring back for user input 
+# lib.add_book(new_book)
 
-
+lib.list_books()
 
 

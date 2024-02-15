@@ -10,7 +10,6 @@ class Book:
     
 def main() -> None:
     book = Book(title="Control Systems Engineering", author="Norman S. Nise", year=2015, genre="engineering textbook")
-    print(book)
     
 if __name__ == "__main__":
     main()

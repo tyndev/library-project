@@ -1,5 +1,5 @@
 import sqlite3
-
+from models import book as b
 # reused and revised code from my login-project to be efficient 
 
 db_path = 'database/library.db'
@@ -25,11 +25,11 @@ def init_db():
     conn.commit()
     conn.close()
 
-def insert_data(book_list):
+def insert_data(book_list: list[b.Book]):
     conn = get_db_connection()
     cursor = conn.cursor()
     for book in book_list:
-        cursor.execute("INSERT INTO books (title, author, year, genre) VALUES (?, ?, ?, ?)", (book["title"], book["author"], book["year"], book["genre"])) # TODO this isn't very scalable or reusable... find ways to improve.   
+        cursor.execute("INSERT INTO books (title, author, year, genre) VALUES (?, ?, ?, ?)", (book.title, book.author, book.year, book.genre)) # TODO this isn't very scalable or reusable... find ways to improve.   
     conn.commit()
     cursor.close()
     conn.close()

@@ -35,7 +35,8 @@ def insert_data(book_list: list[b.Book]):
     conn.close()
     return
 
-# TODO delete_data
+def delete_data(book_list: list[b.Book])
+    pass
 
 # TODO update_data
 

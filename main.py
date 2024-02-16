@@ -8,18 +8,25 @@
     # BOOK - single level class
     # LIBRARY - for features 
 
-from models import book as b
 from services import library_services
 
 lib = library_services.LibraryServices()
 
-new_book = b.Book(title="Control Systems Engineering", author="Norman S. Nise", year=2015, genre="engineering textbook") # TODO convert to user import 
+new_book = {}
+new_book["title"] = "Power Systems"
+new_book["author"] = "Glover"
+new_book["year"] = 2016
+new_book["genre"] = "engineering textbook" # TODO convert to user import 
 
-# WORKS to add new book, pending rest of features, then bring back for user input 
+# ADD
 # lib.add_book(new_book)
 
-for book in lib.list_books():
-    print(book)
+# REMOVE
+lib.remove_book("Power Systems")
+
+# LIST
+# for book in lib.list_books():
+#     print(book)
     
 
 

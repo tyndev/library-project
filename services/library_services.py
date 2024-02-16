@@ -6,25 +6,30 @@ class LibraryServices():
     def __init__(self):
         self.library = []
     
-    def add_book(self, book):
-        # add book to library
-        # check for repeat titles
-        if self.find_book_title(book.title) is None:
+    def add_book(self, book_data: dict):
+        if self.find_book_title(book_data["title"]) is None:
+            book = b.Book(title=book_data["title"], author=book_data["author"], year=book_data["year"], genre=book_data["genre"]) 
             self.library.append(book)
             print(self.library)
             db.insert_data(self.library)
             return True
         else:
+            print("Book Already Exists")
             return False
-     
+
+
     def find_book_title(self, title):
         # Returns None if DNE
         return db.query_db("SELECT * FROM books WHERE title = ?", (title, ), one=True)
         
     def remove_book(self, title):
-        # find_book_title
-        # remove book from book_collection
-        pass
+        book = self.find_book_title(title)
+        if book is None:
+            print("Book DNE")
+            return False
+        else:
+            db.
+            return True
     
     def update_book(self, title, author, year):
         # find_book_title

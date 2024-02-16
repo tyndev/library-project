@@ -3,8 +3,11 @@ Learning Project: RESTful API for Library Management using FastAPI, SQLite, CRUD
 
 
 ## Learnings
+I've learned a lot with this project. 
 ### Appreciation for ORMs
 Once finished, I believe this project will have given a keen appreciate for ORMs such as SQLAlchemy.
+## Initializing Services and Databases
+This `lib = library_services.LibraryServices()` creates an instance of my `LibraryServices()` class and when it does, it runs the `__init__()` initializer. I was running into issues where I initalized a list here, which was just in memory. Instead, because I was using an SQL database for persistent storage, I needed to be initializing the database to ensure it existed and set it up if not. 
 ### Running Python Scripts with Correct Imports
 When executing a script that imports modules from your project, run it from the project's root directory using `python -m <module>` syntax. This ensures that Python correctly resolves package imports relative to the project's root. For example, use `python -m services.library_services` from the root directory to run the `library_services.py` module within the `services` package. This approach prevents `ModuleNotFoundError` by setting the correct import context.
 ### Correct Instance Creation in Main Block

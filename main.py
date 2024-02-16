@@ -19,14 +19,17 @@ new_book["year"] = 2016
 new_book["genre"] = "engineering textbook" # TODO convert to user import 
 
 # ADD
-# lib.add_book(new_book)
+lib.add_book(new_book)
+
+print("before")
+for book in lib.list_books():
+    print(book)
+
 
 # REMOVE
 lib.remove_book("Power Systems")
 
 # LIST
-# for book in lib.list_books():
-#     print(book)
-    
-
-
+print("after")
+for book in lib.list_books():
+    print(book)

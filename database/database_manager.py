@@ -29,14 +29,22 @@ def insert_data(book_list: list[b.Book]):
     conn = get_db_connection()
     cursor = conn.cursor()
     for book in book_list:
-        cursor.execute("INSERT INTO books (title, author, year, genre) VALUES (?, ?, ?, ?)", (book.title, book.author, book.year, book.genre)) # TODO this isn't very scalable or reusable... find ways to improve.   
+        cursor.execute("INSERT INTO books (title, author, year, genre) VALUES (?, ?, ?, ?)", (book.title, book.author, book.year, book.genre))  
     conn.commit()
     cursor.close()
     conn.close()
     return
 
-def delete_data(book_list: list[b.Book])
-    pass
+def delete_data(book_list: list[dict]):
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    for book in book_list:
+        cursor.execute("DELETE FROM books WHERE id = ?", (book["id"],))
+        pass  
+    conn.commit()
+    cursor.close()
+    conn.close()    
+    return
 
 # TODO update_data
 

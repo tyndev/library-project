@@ -47,6 +47,19 @@ class LibraryServices():
             library.append(book)
         return library    
     
+    def sort_books(self, column):
+        library = []
+        allowed_columns = ["title", "author", "year", "genre"]
+        # Validate `column` against a list of allowed column names to prevent SQL injection
+        if column in allowed_columns:
+            for book in db.query_db(f"SELECT * FROM books ORDER BY {column} DESC"):
+                book = b.Book(title=book['title'], author=book['author'], year=book['year'], genre=book['genre']) 
+                library.append(book)
+            return library  
+        else: 
+            return None
+    
+    
 if __name__ == "__main__":
     lib = LibraryServices()
     lib.find_book_title("x")

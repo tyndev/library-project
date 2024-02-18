@@ -1,19 +1,8 @@
-# FEATURES
-    # ADD BOOK - title, author, publication year
-    # REMOVE BOOK
-    # LIST ALL BOOKS - filter by year
-    # UPDATE BOOK
-    # SAVE AND LOAD LIBRARY DATA - SQLite to save data and load on start
-# CLASSES 
-    # BOOK - single level class
-    # LIBRARY - for features 
-
 from services import library_services
 
 lib = library_services.LibraryServices()
 
-
-# add test data   
+# ADD TEST DATA
 test_books = [
     {"title": "The Great Gatsby", "author": "F. Scott Fitzgerald", "year": 1925, "genre": "novel"},
     {"title": "To Kill a Mockingbird", "author": "Harper Lee", "year": 1960, "genre": "Southern Gothic"},

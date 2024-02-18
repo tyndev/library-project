@@ -1,6 +1,5 @@
 # library-project
-Learning Project: RESTful API for Library Management using FastAPI, SQLite, CRUD operations, and Pydantic.
-
+Learning Project: A simple Python book management app with CRUD operations, using SQLite and data classes for data handling and storage.
 
 ## Learnings
 I've learned a lot with this project. 

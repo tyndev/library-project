@@ -27,7 +27,6 @@ class LibraryServices():
             db.insert_data(library)
             return True
         else:
-            print("Book Already Exists")
             return False
         
     def remove_book(self, title):

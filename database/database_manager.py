@@ -39,14 +39,20 @@ def delete_data(book_list: list[dict]):
     conn = get_db_connection()
     cursor = conn.cursor()
     for book in book_list:
-        cursor.execute("DELETE FROM books WHERE id = ?", (book["id"],))
-        pass  
+        cursor.execute("DELETE FROM books WHERE id = ?", (book["id"],))  
     conn.commit()
     cursor.close()
     conn.close()    
     return
 
-# TODO update_data
+def update_data(book: b.Book, old_title):
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute("UPDATE books SET title = ?, author = ?, year = ?, genre = ? WHERE title = ?", (book.title, book.author, book.year, book.genre, old_title))  
+    conn.commit()
+    cursor.close()
+    conn.close()    
+    return
 
 def query_db(query, args=(), one=False):
     conn = get_db_connection()
